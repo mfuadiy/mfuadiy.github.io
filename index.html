@@ -8,8 +8,134 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <style type="text/css">
-        body {
-            background-color: rgba(31, 98, 153, 0.603);
+        /* The actual timeline (the vertical ruler) */
+        
+        .main-timeline-4 {
+            position: relative;
+        }
+        /* The actual timeline (the vertical ruler) */
+        
+        .main-timeline-4::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: #bbb;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        /* Container around content */
+        
+        .timeline-4 {
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        /* The circles on the timeline */
+        
+        .timeline-4::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -11px;
+            background-color: #bbb;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        /* Place the container to the left */
+        
+        .left-4 {
+            padding: 0px 40px 20px 0px;
+            left: 0;
+        }
+        /* Place the container to the right */
+        
+        .right-4 {
+            padding: 0px 0px 20px 40px;
+            left: 50%;
+        }
+        /* Add arrows to the left container (pointing right) */
+        
+        .left-4::before {
+            content: " ";
+            position: absolute;
+            top: 18px;
+            z-index: 1;
+            right: 30px;
+            border: medium solid rgba(37, 117, 252, 1);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent rgba(37, 117, 252, 1);
+        }
+        /* Add arrows to the right container (pointing left) */
+        
+        .right-4::before {
+            content: " ";
+            position: absolute;
+            top: 18px;
+            z-index: 1;
+            left: 30px;
+            border: medium solid rgba(245, 87, 108, 1);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent rgba(245, 87, 108, 1) transparent transparent;
+        }
+        /* Fix the circle for containers on the right side */
+        
+        .right-4::after {
+            left: -14px;
+        }
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        
+        @media screen and (max-width: 600px) {
+            /* Place the timelime to the left */
+            .main-timeline-4::after {
+                left: 31px;
+            }
+            /* Full-width containers */
+            .timeline-4 {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            /* Make sure that all arrows are pointing leftwards */
+            .timeline-4::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            /* Make sure all circles are at the same spot */
+            .left-4::after,
+            .right-4::after {
+                left: 18px;
+            }
+            .left-4::before {
+                right: auto;
+            }
+            /* Make all right containers behave like the left ones */
+            .right-4 {
+                left: 0%;
+            }
+        }
+        
+        .gradient-custom {
+            /* fallback for old browsers */
+            background: #6a11cb;
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+        }
+        
+        .gradient-custom-4 {
+            /* fallback for old browsers */
+            background: #f093fb;
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to left, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to left, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
         }
     </style>
 </head>
@@ -22,7 +148,8 @@
                     <h5 class="modal-title" id="exampleModalLabel">Dear Fitriasih Fajar Nurhayati!</h5>
                 </div>
                 <div class="modal-body">
-                    KAMU SAYANG AKU GA????
+                    OKE SEBELUM DIMULAI, AKU MAU TANYA
+                    <br> KAMU SAYANG AKU GA????
                 </div>
                 <div class="modal-footer">
                     <form action="" method="post">
@@ -35,24 +162,186 @@
         </div>
     </div>
 
-    <button type="button" style="position: fixed; top: 50%; margin-left: 30%;" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#asih1">
-        Oke sekarang klik tombol ini
-    </button>
-    <img src="IMG-6710.jpg" class="img-thumbnail" width="304" height="304">
+    <section class="intro">
+        <div class="container">
+            <center>
+                <h1>Assalamualaikum Istriku Tercinta, Fitriasih Fajar Nurhayati</h1> <br>
+                <h4>Ini adalah Perjalanan Hidup Kamu Di Dunia</h4>
+            </center>
+        </div>
+    </section>
+
+    <div class="container py-5">
+        <div class="main-timeline-4 text-white">
+            <div class="timeline-4 left-4">
+                <div class="card gradient-custom">
+                    <div class="card-body p-4">
+                        <i class="fas fa-baby fa-2x mb-3"></i>
+                        <h4>1996</h4>
+                        <p>Pada hari Rabu tanggal 3 Juli, tepatnya 26 Tahun yang lalu, tangisan kamu pecah ketika dilahirkan di muka bumi ini. Dan pada saat itu juga kamu sudah ditetapkan rezeki, kematian, dan jodohnya. Yaa jodohnya itu adahal AKU, Muhammad
+                            Fuadiy, Suamimu saat ini.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-4 right-4">
+                <div class="card gradient-custom-4">
+                    <div class="card-body p-4">
+                        <i class="fas fa-child fa-2x mb-3"></i>
+                        <h4>2001</h4>
+                        <p>Ini kali pertama kamu dilepas kedunia luar, perlahan orangtua kamu mengenalkan dunia diluar rumah, terkadang indah, terkadang buruk. Dunia yang bisa membuat kamu tertawa, ataupun menangis. Yaa, mereka mengelkan kamu itu semua dari
+                            mulai bangku sekolah sejak dini. Taman kanak-kanak namanya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-4 left-4">
+                <div class="card gradient-custom">
+                    <div class="card-body p-4">
+                        <i class="fas fa-school fa-2x mb-3"></i>
+                        <h4>2002</h4>
+                        <p>Setelah taman kanak-kanak yang singkat, kini saatnya kamu naik ke level DASAR untuk menghadapi dunia. Pada masa-masa ini kamu masih belum mengerti betul tentang dunia ini. Bersekolah tanpa ada beban sosial. Paling, kamu hanya mengenal
+                            bercandaan anak-anak dengan tawa yang masih belum mengerti kalau itu adalah perbuatan yang salah
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-4 right-4">
+                <div class="card gradient-custom-4">
+                    <div class="card-body p-4">
+                        <i class="fas fa-user-tie fa-2x mb-3"></i>
+                        <h4>2008</h4>
+                        <p>Kamu berhasil melalui masa-masa pendidikan dasar. Kini kamu berada pada pendidikan tahap Pertama. Kamu sudah mulai dan peka terhadap sosial kamu, pertemanan, pengkhianatan, kesedihan, kegalauan, bahkan sampai percintaan yang kata
+                            orang dulu masa-masa ini adalah masa pengenalan cinta monyet. Cinta sesaat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-4 left-4">
+                <div class="card gradient-custom">
+                    <div class="card-body p-4">
+                        <i class="fas fa-graduation-cap fa-2x mb-3"></i>
+                        <h4>2011</h4>
+                        <p>Ahh, masa SMA. Masa yang paling banyak dirindukan oleh manusia di Indonesia dengan berbagai kisahnya yang indah. Masa dimana kamu dilatih untuk membentuk mental yang kuat, yang kamu bisa pertahankan ke masa-masa berikutnya. Dan
+                            disini adalah awal dari kisah kita.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-4 right-4">
+                <div class="card gradient-custom-4">
+                    <div class="card-body p-4">
+                        <i class="fas fa-face-kiss fa-2x mb-3"></i>
+                        <h4>2012</h4>
+                        <p>Heyy, ini adalah pertemuan kita pertama! Kamu yang cuek menurutku waktu itu. Kamu yang sapa aku terlebih dulu, yaa waktu itu aku pun cuek kepada kamu
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-4 left-4">
+                <div class="card gradient-custom">
+                    <div class="card-body p-4">
+                        <i class="fas fa-user-graduate fa-2x mb-3"></i>
+                        <h4>2014</h4>
+                        <p>Dan ini adalah bagian favoritku, atau mungkin kamu juga. Pada masa ini kita mulai dilepas ke dunia yang kejam, atau bisa jadi dunia ini begitu indah buat aku karena kehadiran dirimu. Kamu pasti ingat kejadian di Indomaret saat
+                            makan Es Krim kan!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-4 right-4">
+                <div class="card gradient-custom-4">
+                    <div class="card-body p-4">
+                        <i class="fas fa-building-columns fa-2x mb-3"></i>
+                        <h4>2016</h4>
+                        <p>Setelah dua tahun kamu bekerja, kamu memutuskan untuk masuk kuliah. Berat memang menjalani kuliah sambil kerja. Aku akuin, disini kamu kuat banget, kamu wanita tangguh, kamu wanita terhebat. Kamu bisa memberi nafkah keluarga, tapi
+                            kamu juga bisa raih masa depan kamu! Aku bangga sama kamu!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-4 left-4">
+                <div class="card gradient-custom">
+                    <div class="card-body p-4">
+                        <i class="fas fa-people-arrows-left-right fa-2x mb-3"></i>
+                        <h4>2020</h4>
+                        <p>Perjalanan yang sangat panjang ya! Sampai dititik ini aku memberanikan diri untuk bilang ke orang tua kamu bahwa aku yang akan meneruskan tanggung jawab kamu dari orang tua kamu. Disini aku tegang lho BTW!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-4 right-4">
+                <div class="card gradient-custom-4">
+                    <div class="card-body p-4">
+                        <i class="fas fa-children fa-2x mb-3"></i>
+                        <h4>2021</h4>
+                        <p>Dan ga perlu waktu lama, persiapan yang singkat, setalah banyak perjalanan yang kita lalui bersama dari 2014 sampai dititik ini. Akhirnya aku berjabatan tangan dengan Bapak mu, mengucapkan perjanjian suci, antara aku dan bapak
+                            kamu. Yaa, aku resmi menjadi Suami mu, seluruh tindak tanduk perbuatan kamu akan menjadi tanggung jawab aku mulai pada saat itu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-4 left-4">
+                <div class="card gradient-custom">
+                    <div class="card-body p-4">
+                        <i class="fas fa-check fa-2x mb-3"></i>
+                        <h4>2022</h4>
+                        <p>Dan disini lah kamu, meneruskan kehidupan bersama aku, orang terkasihmu. Terima kasih selama ini kamu telah hadir dan memahami aku. Kita teruskan kehidupan ini, dan semoga akan kekal hingga Syurga nanti. Aamiin
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <center>
+        <h1>Oke sekarang pilih diantara nomor di bawah ini</h1><br><br>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#asih1">
+            1
+        </button>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#asih1">
+            2
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asih1">
+            3
+        </button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#asih1">
+            4
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#asih1">
+            5
+        </button>
+    </center>
+    <br><br>
     <div class="modal fade" id="asih1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="asih1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-
-                    <h5 class="modal-title" id="exampleModalLabel">Selamat Ulang Tahun Istriku Tercinta</h5>
+                    <img src="band.jpg" width="120" height="120" class="rounded-circle">
+                    <h5 class="modal-title" id="exampleModalLabel">Selamat, Kamu Mendapatkan Smartwacth!</h5>
                 </div>
                 <div class="modal-body">
-                    <img src="IMG-6710.jpg" width="304" height="304">KAMU SAYANG AKU GA????
+
+                    <h3>Selamat ulang tahun utuk istri aku tercinta!</h3>
+                    <center><img src="fitri.jpg" width="120" height="120" class="rounded-circle"></center>
+                    <br> Terima kasih karena sudah menjadi istri paling hebat dan terkeren yang pernah ada! <br>
+                    <br> Semoga Allah berikan rahmat dan ridho-Nya disisa umur kamu yang sekarang, Aamiin. <br>
+                    <br> Tetap semangat dan ikhtiar terus ya sayang untuk mendapatkan anak. Jangan berlarut dalam kesedihan hanya karena belum dapat anak. InsyaAllah nanti Allah kasih anak yang sholeh/sholehah, Aamiin YRA. <br>
+                    <br> Makin taat sama Allah, berbakti sama suami, bisa bangun lebih pagi lagi. Jangan lupa doain aku rezekinya biar makin berkah yaa sayang, bisa beliin kamu motor, ipad, umroh bareng, haji bareng, jalan-jalan keliling dunia! <br>
+                    <br> SEMOGA ALLAH MENJODOHKAN KITA KEMBALI DI SYURGA YAA SAYANG. AAMIIIN YRA <br>
+                    <B>I LOVE YOU TILL
+                        JANNAH</B>
                 </div>
-                <div class="modal-footer">
-                    <form action="" method="post">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Siap Suamiku</button>
-                    </form>
+                <div class="modal-footer" style="justify-content: center;">
+                    Dari Suami Kamu Tersayang <i class="fa-solid fa-heart" style="color: red;"></i>
+                    <br> <b> Sekarang ambil kotak yang barusan tiba</b>
                 </div>
             </div>
         </div>
@@ -101,11 +390,22 @@
         }, 1000);
     </script>
 
-
+    <script>
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b9424abb48.js" crossorigin="anonymous"></script>
 
     <script>
         var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {})
